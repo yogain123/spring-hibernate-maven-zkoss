@@ -8,7 +8,8 @@ public void setTemplate(HibernateTemplate template) {
     this.template = template;  
 }  
 //method to save employee  
-public void saveEmployee(Employee e){  
+public void saveEmployee(Employee e){ 
+	
     template.save(e);  
 }  
 //method to update employee  

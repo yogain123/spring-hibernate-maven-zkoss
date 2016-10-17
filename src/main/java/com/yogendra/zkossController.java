@@ -19,12 +19,16 @@ import org.zkoss.zk.ui.select.annotation.Wire;
 import org.zkoss.zk.ui.util.Clients;
 import org.zkoss.zk.ui.util.GenericForwardComposer;
 import org.zkoss.zul.Datebox;
+import org.zkoss.zul.Intbox;
 import org.zkoss.zul.Label;
 import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Listbox;
 import org.zkoss.zul.Textbox;
 
 public class zkossController extends GenericForwardComposer{
+	
+	@Wire
+	Intbox id;
 	
 	//Wiring Components
 	@Wire
@@ -37,6 +41,9 @@ public class zkossController extends GenericForwardComposer{
 	//static
 	Textbox phone;
 	
+	@Wire
+	Textbox del;
+	
 	 @Override
 		public void doAfterCompose(Component comp) throws Exception{
 			super.doAfterCompose(comp);
@@ -46,23 +53,49 @@ public class zkossController extends GenericForwardComposer{
 	//public static void main(String[] args) { 
 	
 	//@Listen("onClick = save")
-	public void onClick$save(){
-		System.out.println("inside");
-	      
-	    Resource r=new ClassPathResource("applicationContext.xml");
+	 
+	 Resource r=new ClassPathResource("applicationContext.xml");
 		//ApplicationContext context = new XmlClassPathApplicationContext("applicationContext.xml");
 	    BeanFactory factory=new XmlBeanFactory(r);  
 	      
 	    EmployeeDao dao=(EmployeeDao)factory.getBean("d"); 
+	 
+	public void onClick$save(){
+		//System.out.println("inside");
+	      
+	   
 	    
 	    Employee e=new Employee();
+	    
 	    e.setName(name.getValue());
 		e.setAge(age.getValue());
 		e.setPhone(phone.getValue());
-		e.setId(111);
+		e.setId(id.getValue());
 		
 		dao.saveEmployee(e);
+	}
 	
+	public void onClick$del(){
+	
+		Employee eDel = new Employee();
+	
+		
+		eDel.setId(id.getValue());
+		dao.deleteEmployee(eDel);
+		
+		
+		
+	
+	}
+	
+	public void onClick$update(){
+		
+		Employee eUpdate = new Employee();
+		eUpdate.setId(id.getValue());
+		eUpdate.setName(name.getValue());
+		eUpdate.setAge(age.getValue());
+		eUpdate.setPhone(phone.getValue());
+		dao.updateEmployee(eUpdate);
 	}
 	     
 	   

@@ -6,7 +6,7 @@
 <hibernate-mapping>  
 <class name="com.yogendra.Employee" table="POC">  
           <id name="id">  
-          <generator class="increment"></generator>  
+          <!-- <generator class="increment"></generator>  -->
           </id>  
             
           <property name="name"></property>  

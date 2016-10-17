@@ -37,7 +37,7 @@
     <property name="sessionFactory" ref="mysessionFactory"></property>  
     </bean>  
       
-    <bean id="d" class="com.yogendra.spring-hibernate-maven-zkoss.EmployeeDao">  
+    <bean id="d" class="com.yogendra.EmployeeDao">  
     <property name="template" ref="template"></property>  
     </bean>  
       

@@ -3,10 +3,15 @@
 <window title="Leida POC" apply="com.yogendra.zkossController,org.zkoss.zkplus.databind.AnnotateDataBindingComposer" border="normal">
 
 	
-                   Name : <textbox id="name"/>
-                   Age : <textbox id="age"/>
-                   Phone : <textbox id="phone"/>
-                   <button id="save"  label="Save"/>   
+                   Id : <intbox id="id" constraint="no empty,no negative"></intbox>
+                   Name : <textbox id="name" constraint="no empty"/>
+                   Age : <textbox id="age" constraint="no empty"/>
+                   Phone : <textbox id="phone" constraint="no empty"/>
+                   <button id="save"  label="Save"/>
+                   <button id="del"  label="Delete"/> 
+                   <button id="update"  label="Update"/> 
+                   
+                 
         
 	
 </window>

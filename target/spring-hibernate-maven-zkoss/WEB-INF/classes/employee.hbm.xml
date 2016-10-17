@@ -4,7 +4,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
   
 <hibernate-mapping>  
-<class name="com.yogendra.spring-hibernate-maven-zkoss.Employee" table="POC">  
+<class name="com.yogendra.Employee" table="POC">  
           <id name="id">  
           <generator class="increment"></generator>  
           </id>  
